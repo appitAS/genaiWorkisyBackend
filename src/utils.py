@@ -84,14 +84,14 @@ def data_preprocessing(data):
 def upzip_saved_model():
     
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    zip_file_path = os.path.join(script_dir, 'fine_tuned_sbert_job_search11.zip')
+    zip_file_path = os.path.join(script_dir, 'fine_tuned_sbert_job_search1.zip')
     zip_file_dir = os.path.dirname(zip_file_path)
     extract_path = None
     
     with zipfile.ZipFile(zip_file_path, 'r') as zip_ref:
         zip_ref.extractall(zip_file_dir)
     print("Model unzipped")
-    extract_path = os.path.join(zip_file_dir, 'fine_tuned_sbert_job_search')
+    extract_path = os.path.join(zip_file_dir, 'fine_tuned_sbert_job_search1')
     return extract_path
 
 def load_saved_model(extract_path):
@@ -146,7 +146,7 @@ def search_jobs(model,index,data,query, top_k=10):
     # Fetch the matching job titles
     results = data.iloc[I[0]]
 
-    return results[['Name', 'Skills', 'Description', 'Location','Company','Sal','Post Date','Exp']]
+    return results[['title', 'recruit_skills_ai', 'job_description', 'recruit_locations_ai','recruit_salary_ai','updated_at','recruit_work_exp_ai']]
 
 def is_roman_urdu(text):
     roman_urdu_keywords = {'main', 'hoon', 'mera', 'ka', 'ki', 'tum', 'kya', 'nahi', 'hai', 'job', 'mujhe', 'cahiye'}
