@@ -11,7 +11,7 @@ CORS(app)
 # Configuration for file uploads
 UPLOAD_FOLDER = 'uploads'  # Directory where you want to save uploaded files
 ALLOWED_EXTENSIONS = {'pdf', 'doc', 'docx'} # Set of allowed file extensions
-API_KEY = "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"
+API_KEY = "api_key = "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""
 
 # Ensure the upload folder exists
 if not os.path.exists(UPLOAD_FOLDER):
