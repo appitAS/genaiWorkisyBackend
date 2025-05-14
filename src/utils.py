@@ -408,7 +408,6 @@ def calculate_semantic_match_percentage_batched(query_or_resume_text: str, searc
             - 75-99 indicates a high degree of semantic similarity, where the result captures the main meaning of the query but might have minor differences in nuance or completeness.
             - 50-74 suggests a moderate degree of similarity, where there's a noticeable overlap in meaning, but significant aspects of the query might be missing or misinterpreted.
             - 25-49 indicates low semantic similarity, where the result has some superficial connection to the query but fails to capture its core meaning.
-            - 0 means there is no semantic relationship between the query and the result.
 
             Consider the following aspects when determining the similarity score:
             - **Core meaning and intent:** Does the result address the central idea and purpose behind the query?
