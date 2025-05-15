@@ -9,7 +9,7 @@ import pandas as pd
 import requests
 
 app = Flask(__name__)
-CORS(app, supports_credentials=True)  # Allow all origins for all routes
+CORS(app, resources={r"/*": {"origins": "https://genai.workisy.com"}}, supports_credentials=True)
 app.secret_key = os.urandom(24)
 oauth = OAuth(app)
 
