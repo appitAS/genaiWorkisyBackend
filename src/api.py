@@ -89,7 +89,7 @@ def auth_callback():
         print("[DEBUG] User info saved to DB")
         target_url = session.pop('redirect_after_login', '/')
         # Redirect to home page
-        return redirect(f'http://localhost:5173/?redirect={target_url}')
+        return redirect(f'https://genai-api.workisy.com/?redirect={target_url}')
     except Exception as e:
         print(f"[OAuth Error] {e}")
         return jsonify({"error": str(e)}), 500
