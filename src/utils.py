@@ -160,7 +160,7 @@ def search_jobs(model,index,data,query, top_k=10):
 
     # Fetch the matching job titles
     results = data.iloc[I[0]]
-    return results[['title', 'recruit_skills_ai', 'job_description', 'recruit_locations_ai','recruit_salary_ai','updated_at','recruit_work_exp_ai','Link']]
+    return results[['title', 'recruit_skills_ai', 'job_description', 'recruit_locations_ai','recruit_salary_ai','updated_at','recruit_work_exp_ai','url']]
 
 def is_roman_urdu(text):
     roman_urdu_keywords = {'main', 'hoon', 'mera', 'ka', 'ki', 'tum', 'kya', 'nahi', 'hai', 'job', 'mujhe', 'cahiye'}
