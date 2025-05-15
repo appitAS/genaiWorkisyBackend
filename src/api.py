@@ -32,7 +32,9 @@ SERVER_IP = "94.136.185.155"
 PASSWORD = "1Nu3qW78"
 USERNAME = "root"
 # Set the UPLOAD_FOLDER (Change the path to your desired directory)
-app.config['UPLOAD_FOLDER'] = os.path.join(os.getcwd(), 'uploads')
+UPLOAD_FOLDER = os.path.join(os.path.dirname(__file__), 'uploads')
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 def allowed_file(filename):
     """Checks if the file extension is allowed."""
