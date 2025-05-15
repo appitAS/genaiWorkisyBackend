@@ -100,14 +100,14 @@ def data_preprocessing(data):
 def upzip_saved_model():
     
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    zip_file_path = os.path.join(script_dir, 'fine_tuned_sbert_job_search.zip')
+    zip_file_path = os.path.join(script_dir, 'fine_tuned_sbert_job_search1.zip')
     zip_file_dir = os.path.dirname(zip_file_path)
     extract_path = None
     
     with zipfile.ZipFile(zip_file_path, 'r') as zip_ref:
         zip_ref.extractall(zip_file_dir)
     print("Model unzipped")
-    extract_path = os.path.join(zip_file_dir, 'fine_tuned_sbert_job_search')
+    extract_path = os.path.join(zip_file_dir, 'fine_tuned_sbert_job_search1')
     return extract_path
 
 def load_saved_model(extract_path):
