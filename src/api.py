@@ -10,11 +10,21 @@ import requests
 
 app = Flask(__name__)
 CORS(app, 
-     resources={r"/*": {"origins": ["https://genai.workisy.com"]}},
+     resources={r"/*": {"origins": "*"}},
      supports_credentials=True,
      allow_headers=["Content-Type", "Authorization"],
      methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
      expose_headers=["Access-Control-Allow-Origin", "Access-Control-Allow-Credentials"])
+
+@app.after_request
+def apply_cors_headers(response):
+    origin = request.headers.get('Origin')
+    if origin:
+        response.headers["Access-Control-Allow-Origin"] = origin  # Dynamic Origin
+        response.headers["Access-Control-Allow-Credentials"] = "true"
+        response.headers["Access-Control-Allow-Methods"] = "GET, POST, PUT, DELETE, OPTIONS"
+        response.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
+    return response
 app.secret_key = os.urandom(24)
 oauth = OAuth(app)
 
