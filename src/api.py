@@ -105,8 +105,14 @@ def auth_callback():
         save_user_info(user)
         print("[DEBUG] User info saved to DB")
         target_url = session.pop('redirect_after_login', '/')
-        # Redirect to home page
-        return redirect(f'https://genai.workisy.com/?redirect={target_url}')
+        access_token = token['access_token']
+        # Return JSON response with access token and user info
+        return jsonify({
+            "access_token": access_token,
+            "user_info": user,
+            "redirect_url": target_url
+        }), 200
+    
     except Exception as e:
         print(f"[OAuth Error] {e}")
         return jsonify({"error": str(e)}), 500
